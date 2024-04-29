@@ -38,7 +38,8 @@ def about():
 
 @app.route('/products')
 def products():
-    return render_template("products.html")
+    products=Products.query.order_by(Products.date).all()
+    return render_template("products.html",products=products)
 
 
 @app.route('/add-product', methods=['POST', 'GET'])
@@ -46,12 +47,18 @@ def add_product():
     if request.method == "POST":
         name = request.form['name_product']
         production_date = date.fromisoformat(request.form['production_date'])
-
-        print(production_date)
-        days = int(request.form['days'])
-        weeks = int(request.form['weeks'])
-        months=int(request.form['months'])
-        years = int(request.form['years'])
+        days=0
+        weeks=0
+        months=0
+        years=0
+        if len(request.form['days'])>0:
+            days = int(request.form['days'])
+        if len(request.form['weeks']) > 0:
+            weeks = int(request.form['weeks'])
+        if len(request.form['months']) > 0:
+            months=int(request.form['months'])
+        if len(request.form['years']) > 0:
+            years = int(request.form['years'])
         delta=relativedelta(years=years,months=months,days=days,weeks=weeks)
         death_date=production_date+delta
         product=Products(name=name,date=production_date,death_date=death_date)

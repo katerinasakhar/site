@@ -5,7 +5,15 @@
 {% endblock %}
 
 {%block body%}
+
 <div class="col-lg-6 col-md-8 mx-auto" align="left">
+    <h1 align="left">Продукты</h1>
+    {% for el in products %}
+    <div class="alert-info">
+        <p>{{el.name}}  {{el.date.date().strftime('%d.%m.%Y')}}  {{el.death_date.date().strftime('%d.%m.%Y')}}</p>
+
+    </div>
+    {%endfor%}
     <a href="/add-product" class="btn btn-primary my-2" >Добавить продукт</a>
 </div>
 {% endblock %}
