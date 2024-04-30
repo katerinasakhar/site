@@ -42,6 +42,19 @@ def products():
     return render_template("products.html",products=products)
 
 
+@app.route('/products/<int:id>/del')
+def product_delete(id):
+    product=Products.query.get_or_404(id)
+    try:
+        db.session.delete(product)
+        db.session.commit()
+        return redirect('/products')
+    except:
+        return "При удалении продукта произошла ошибка"
+
+    return render_template("products.html",products=products)
+
+
 @app.route('/add-product', methods=['POST', 'GET'])
 def add_product():
     if request.method == "POST":
