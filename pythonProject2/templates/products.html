@@ -7,16 +7,13 @@
 {%block body%}
 
 <div class="col-lg-6 col-md-8 mx-auto" align="left">
-    <h1 align="left">Продукты</h1>
+    <h1 align="left">Список продуктов</h1>
     {% for el in products %}
     <div class="alert-info">
         <p>{{el.name}}  {{el.date.date().strftime('%d.%m.%Y')}}  {{el.death_date.date().strftime('%d.%m.%Y')}} </p>
-        <script>
-            if (el.death_date-el.date
-        </script>
-        <a href="/products/{{el.id}}/del" class="btn btn-danger">Удалить</a>
+        <a href="/{{id}}/products/{{el.id}}/del" class="btn btn-danger">Удалить</a>
     </div>
     {%endfor%}
-    <a href="/add-product" class="btn btn-primary my-2" >Добавить продукт</a>
+    <a href="/{{id}}/add-product" class="btn btn-primary my-2" >Добавить продукт</a>
 </div>
 {% endblock %}

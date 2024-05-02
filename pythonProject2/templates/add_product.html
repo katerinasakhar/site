@@ -8,12 +8,12 @@
 <div class="container mt-5">
     <h1>Добавить продукт</h1>
     <form method="post">
-        <input type="text" name="name_product" class="form-control" placeholder="Введите название продукта"> <br>
+        <input type="text" name="name_product" class="form-control" placeholder="Введите название продукта"required> <br>
         <label for="production_date">Выберите дату производства</label>
-        <input type="date" name="production_date" class="form-control" placeholder="Введите дату производства" > <br>
+        <input type="date" name="production_date" class="form-control" placeholder="Введите дату производства" required  > <br>
        
         <h4 align="left">Введите срок хранения</h4>
-        <input type="number" name="days" class="form-control" placeholder="Дни" min="0"  >
+        <input type="number" name="days" class="form-control" placeholder="Дни" min="0" >
         <input type="number" name="weeks" class="form-control" placeholder="Недели" min="0"  >
         <input type="number" name="months" class="form-control" placeholder="Месяцы" min="0" >
         <input type="number" name="years" class="form-control" placeholder="Года" min="0">
