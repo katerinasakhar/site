@@ -1,11 +1,10 @@
-{% extends 'base.html'%}
+{% extends 'auth_page.html'%}
 
 {%block title%}
-Главная страница
+Продукты
 {% endblock %}
 
 {%block body%}
-
 <div class="col-lg-6 col-md-8 mx-auto" align="left">
     <h1 align="left">Список продуктов</h1>
     {% for el in products %}
