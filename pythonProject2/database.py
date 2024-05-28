@@ -1,8 +1,9 @@
 from flask_sqlalchemy import SQLAlchemy
-from app import app
+from app import app, db
+import os
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
-db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+# db = SQLAlchemy(app)
 
 
 class User(db.Model):
@@ -35,3 +36,8 @@ class UserChat(db.Model):
 
     def __repr__(self):
         return '<UserChat %r>' % self.id
+
+
+if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()

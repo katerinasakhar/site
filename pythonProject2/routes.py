@@ -2,7 +2,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
-from pythonProject2.database import db, User, Products
+from database import db, User, Products
 from app import app
 
 
