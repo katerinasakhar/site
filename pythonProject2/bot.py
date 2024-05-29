@@ -81,7 +81,7 @@ def check_expiration():
 # Настройка планировщика
 scheduler = BackgroundScheduler()
 timezone = pytz.timezone('Europe/Moscow')
-scheduler.add_job(check_expiration, 'cron', hour=19, minute=50, timezone=timezone)
+scheduler.add_job(check_expiration, 'cron', hour=9, minute=00, timezone=timezone)
 scheduler.start()
 
 # Настройка обработчиков команд
